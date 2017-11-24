@@ -11,3 +11,6 @@ class FailedToCreateGenerator(path: String)
 class NotRegisteredGeneratorListException
     : IllegalStateException("R.string.component_generator_list must be defined in manifest as meta-data "
         + "with resource as string array.")
+
+class MultipleCoreComponentException
+    : IllegalStateException("Only one CoreApplicationComponent is allowed.")

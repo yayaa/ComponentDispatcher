@@ -17,6 +17,9 @@
         <meta-data android:name="@string/component_generator_core"
             android:value=".SomeComponentGenerator" />
 
+        <meta-data android:name="@string/component_generator_feature1"
+            android:value=".SomeComponentGenerator2" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

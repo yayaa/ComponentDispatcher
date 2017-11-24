@@ -1,16 +1,12 @@
 package com.yayandroid.componentdispatcher.sample
 
-import com.yayandroid.componentdispatcher.ComponentGenerator
 import com.yayandroid.componentdispatcher.CoreApplicationComponent
+import com.yayandroid.componentdispatcher.CoreComponentGenerator
 
-class SomeComponentGenerator : ComponentGenerator<SomeComponent>() {
+class SomeComponentGenerator : CoreComponentGenerator<SomeComponent>() {
 
-    override fun generate(): SomeComponent = object : SomeComponent() { }
-
-}
-
-abstract class SomeComponent : CoreApplicationComponent {
-
-    override fun toString(): String = "Hello World!"
+    override fun generate(coreApplicationComponent: CoreApplicationComponent?): SomeComponent = SomeComponent()
 
 }
+
+class SomeComponent : CoreApplicationComponent
