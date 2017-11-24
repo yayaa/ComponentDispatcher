@@ -11,7 +11,7 @@ object ComponentDispatcher {
 
     private val TAG = ComponentDispatcher::class.java.name
     @Suppress("MemberVisibilityCanPrivate")
-    @PublishedApi internal var coreComponentGenerator: ComponentGenerator<*>? = null
+    @PublishedApi internal var coreComponentGenerator: CoreComponentGenerator<*>? = null
     @PublishedApi internal val generatorMap = HashMap<Type, ComponentGenerator<*>>()
 
     fun initialize(application: Application) {
@@ -24,10 +24,10 @@ object ComponentDispatcher {
     }
 
     inline fun <reified T : ApplicationComponent> get(): T = generatorMap[T::class.java]
-            ?.let {
-                it.coreApplicationComponent = coreComponentGenerator?.component as CoreApplicationComponent?
-                return@let it.component as T
-            } ?: run { throw NotRegisteredGeneratorException(T::class.java.name) }
+            ?.let { return@let it.component as T }
+            ?: run { throw NotRegisteredGeneratorException(T::class.java.name) }
+
+    internal fun getCoreApplicationComponent(): CoreApplicationComponent? = coreComponentGenerator?.component
 
     private fun readMetaData(application: Application): Bundle {
         return application.packageManager

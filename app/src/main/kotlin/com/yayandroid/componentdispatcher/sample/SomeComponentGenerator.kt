@@ -5,7 +5,7 @@ import com.yayandroid.componentdispatcher.CoreComponentGenerator
 
 class SomeComponentGenerator : CoreComponentGenerator<SomeComponent>() {
 
-    override fun generate(coreApplicationComponent: CoreApplicationComponent?): SomeComponent = SomeComponent()
+    override fun generate(): SomeComponent = SomeComponent()
 
 }
 

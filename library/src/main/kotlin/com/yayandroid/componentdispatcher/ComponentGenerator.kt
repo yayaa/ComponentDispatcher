@@ -4,16 +4,19 @@ import java.lang.reflect.ParameterizedType
 
 abstract class ComponentGenerator<out T: ApplicationComponent> {
 
-    var coreApplicationComponent: CoreApplicationComponent? = null
-    val component: T by lazy { generate(coreApplicationComponent) }
+    abstract val component: T
 
     @Suppress("HasPlatformType")
     fun componentClass() = (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[0]
 
-    abstract fun generate(coreApplicationComponent: CoreApplicationComponent?): T
-
 }
 
-abstract class CoreComponentGenerator<out T: CoreApplicationComponent> : ComponentGenerator<T>()
+abstract class CoreComponentGenerator<out T: CoreApplicationComponent> : ComponentGenerator<T>() {
+    override val component: T by lazy { generate() }
+    abstract fun generate(): T
+}
 
-abstract class FeatureComponentGenerator<out T: FeatureApplicationComponent> : ComponentGenerator<T>()
+abstract class FeatureComponentGenerator<out T: FeatureApplicationComponent> : ComponentGenerator<T>() {
+    override val component: T by lazy { generate(ComponentDispatcher.getCoreApplicationComponent()) }
+    abstract fun generate(coreApplicationComponent: CoreApplicationComponent?): T
+}
