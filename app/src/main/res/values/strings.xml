@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ComponentDispatcherSample</string>
+
+    <string name="component_generator_core">ComponentGeneratorCore</string>
+    <string name="component_generator_feature1">ComponentGeneratorFeature1</string>
+    <string name="component_generator_feature2">ComponentGeneratorFeature2</string>
+
+    <string-array name="component_generators">
+        <item>@string/component_generator_core</item>
+        <item>@string/component_generator_feature1</item>
+        <item>@string/component_generator_feature2</item>
+    </string-array>
+
+</resources>

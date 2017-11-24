@@ -1,0 +1,7 @@
+package com.yayandroid.componentdispatcher
+
+interface ApplicationComponent
+
+interface CoreApplicationComponent : ApplicationComponent
+
+interface FeatureApplicationComponent : ApplicationComponent
