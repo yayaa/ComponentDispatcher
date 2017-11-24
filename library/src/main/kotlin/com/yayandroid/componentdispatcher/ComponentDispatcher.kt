@@ -24,7 +24,7 @@ object ComponentDispatcher {
     }
 
     inline fun <reified T : ApplicationComponent> get(): T = generatorMap[T::class.java]
-            ?.let { return@let it.component as T }
+            ?.let { return it.component as T }
             ?: run { throw NotRegisteredGeneratorException(T::class.java.name) }
 
     internal fun getCoreApplicationComponent(): CoreApplicationComponent? = coreComponentGenerator?.component
