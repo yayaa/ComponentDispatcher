@@ -5,11 +5,12 @@ import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
+import java.lang.reflect.Type
 
 object ComponentDispatcher {
 
     private val TAG = ComponentDispatcher::class.java.name
-    @PublishedApi internal val generatorMap = HashMap<Class<*>, ComponentGenerator<*>>()
+    @PublishedApi internal val generatorMap = HashMap<Type, ComponentGenerator<*>>()
 
     fun initialize(application: Application) {
         val metaData = readMetaData(application)

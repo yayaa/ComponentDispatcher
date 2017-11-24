@@ -4,8 +4,6 @@ import com.yayandroid.componentdispatcher.ComponentGenerator
 import com.yayandroid.componentdispatcher.CoreApplicationComponent
 
 class SomeComponentGenerator : ComponentGenerator<SomeComponent>() {
-    
-    override fun componentClass(): Class<*> = SomeComponent::class.java
 
     override fun generate(): SomeComponent = object : SomeComponent() { }
 
