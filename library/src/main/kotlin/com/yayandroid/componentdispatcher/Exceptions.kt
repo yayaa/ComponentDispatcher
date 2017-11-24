@@ -1,10 +1,10 @@
 package com.yayandroid.componentdispatcher
 
-class NotRegisteredGeneratorException(key: String)
-    : IllegalStateException("Required $key has no corresponding ComponentGenerator defined in manifest.")
+class NotRegisteredGeneratorException(requiredClass: String)
+    : IllegalStateException("$requiredClass has no corresponding ComponentGenerator defined in manifest.")
 
 class FailedToCreateGenerator(path: String)
-    : IllegalStateException("Required $path has no corresponding ComponentGenerator. "
+    : IllegalStateException("Required ComponentGenerator with path = $path but not found. "
         + "Please make sure to define the path in manifest as full path to generator class without package name prefix "
         + "but starts with `.`")
 

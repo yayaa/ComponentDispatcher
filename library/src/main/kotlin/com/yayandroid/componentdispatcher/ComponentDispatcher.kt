@@ -9,7 +9,7 @@ import android.util.Log
 object ComponentDispatcher {
 
     private val TAG = ComponentDispatcher::class.java.name
-    @PublishedApi internal val generatorMap = HashMap<String, ComponentGenerator<*>>()
+    @PublishedApi internal val generatorMap = HashMap<Class<*>, ComponentGenerator<*>>()
 
     fun initialize(application: Application) {
         val metaData = readMetaData(application)
@@ -21,7 +21,7 @@ object ComponentDispatcher {
             metaData.getString(pathName)?.let {
                 Log.i(TAG, "$pathName found as: $it")
                 createGenerator(application, it).also {
-                    generatorMap.put(it.componentKey(), it)
+                    generatorMap.put(it.componentClass(), it)
                     Log.i(TAG, "Mapped ComponentGenerator Instance: $it")
                 }
             } ?: run {
@@ -30,8 +30,9 @@ object ComponentDispatcher {
         }
     }
 
-    inline fun <reified T : ApplicationComponent> get(key: String): T = generatorMap[key]
-            ?.let { return@let it.component as T } ?: run { throw NotRegisteredGeneratorException(key) }
+    inline fun <reified T : ApplicationComponent> get(): T = generatorMap[T::class.java]
+            ?.let { return@let it.component as T }
+            ?: run { throw NotRegisteredGeneratorException(T::class.java.name) }
 
     private fun readPathKeys(application: Application, generatorListResId: Int): Array<String> {
         try {

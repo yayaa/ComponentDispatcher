@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component: SomeComponent = ComponentDispatcher.get(SomeComponentGenerator.KEY)
+        val component = ComponentDispatcher.get<SomeComponent>()
         Log.e("MainActivity", "Component: $component")
     }
 }

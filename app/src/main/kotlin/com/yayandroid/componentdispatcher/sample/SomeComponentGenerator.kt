@@ -4,12 +4,8 @@ import com.yayandroid.componentdispatcher.ComponentGenerator
 import com.yayandroid.componentdispatcher.CoreApplicationComponent
 
 class SomeComponentGenerator : ComponentGenerator<SomeComponent>() {
-
-    companion object {
-        const val KEY = "SomeComponent"
-    }
-
-    override fun componentKey(): String = KEY
+    
+    override fun componentClass(): Class<*> = SomeComponent::class.java
 
     override fun generate(): SomeComponent = object : SomeComponent() { }
 
