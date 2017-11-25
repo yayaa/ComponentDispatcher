@@ -15,10 +15,10 @@
             android:resource="@array/component_generators" />
 
         <meta-data android:name="@string/component_generator_core"
-            android:value=".SomeComponentGenerator" />
+            android:value="com.yayandroid.componentdispatcher.sample.SomeComponentGenerator" />
 
         <meta-data android:name="@string/component_generator_feature1"
-            android:value=".SomeComponentGenerator2" />
+            android:value="com.yayandroid.componentdispatcher.sample.SomeComponentGenerator2" />
 
         <activity android:name=".MainActivity">
             <intent-filter>

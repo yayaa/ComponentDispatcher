@@ -55,11 +55,11 @@ object ComponentDispatcher {
     }
 
     private fun createGenerator(application: Application, generatorPath: String) {
-        val fullPath = application.packageName + generatorPath
-        Log.i(TAG, "Create ComponentGenerator Instance: $fullPath")
+        Log.i(TAG, "Create ComponentGenerator Instance: $generatorPath")
+
         try {
-            val componentGenerator
-                    = application.classLoader.loadClass(fullPath).getConstructor().newInstance() as ComponentGenerator<*>
+            val componentGenerator = application.classLoader.loadClass(generatorPath)
+                    .getConstructor().newInstance() as ComponentGenerator<*>
             generatorMap.put(componentGenerator.componentClass(), componentGenerator)
             Log.i(TAG, "Mapped ComponentGenerator Instance: $componentGenerator")
 
