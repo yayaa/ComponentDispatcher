@@ -1,0 +1,26 @@
+<manifest package="com.yayandroid.componentdispatcher.sample.feature2"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+        <meta-data
+            android:name="@string/component_generator_feature2"
+            android:value="com.yayandroid.componentdispatcher.sample.feature2.Feature2ComponentGenerator" />
+
+        <activity android:name=".Feature2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host=""
+                    android:path="/feature2"
+                    android:scheme="sample"
+                    tools:ignore="AppLinkUrlError" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

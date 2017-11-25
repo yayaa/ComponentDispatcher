@@ -1,0 +1,11 @@
+<resources>
+    <string name="component_generator_core">componentdispatcher.generator.core</string>
+    <string name="component_generator_feature1">componentdispatcher.generator.feature.first</string>
+    <string name="component_generator_feature2">componentdispatcher.generator.feature.second</string>
+
+    <string-array name="component_generators">
+        <item>@string/component_generator_core</item>
+        <item>@string/component_generator_feature1</item>
+        <item>@string/component_generator_feature2</item>
+    </string-array>
+</resources>

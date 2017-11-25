@@ -1,0 +1,6 @@
+dependencies {
+    api project(':library')
+
+    api libraries.kotlin
+    api libraries.appCompat
+}

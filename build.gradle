@@ -29,6 +29,38 @@ allprojects {
     }
 }
 
+subprojects { project ->
+
+    if (project.name == "library") {
+        // Ignore this to have separate configuration
+    } else {
+        if (project.name == "app") {
+            apply plugin: 'com.android.application'
+        } else {
+            apply plugin: 'com.android.library'
+        }
+        apply plugin: 'kotlin-android'
+        apply plugin: 'kotlin-android-extensions'
+
+        android {
+            compileSdkVersion versions.compileSdkVersion
+
+            defaultConfig {
+                minSdkVersion versions.minSdkVersion
+                targetSdkVersion versions.targetSdkVersion
+                versionCode 1
+                versionName "1.0"
+            }
+
+            sourceSets {
+                main.java.srcDirs += 'src/main/kotlin'
+                test.java.srcDirs += 'src/test/kotlin'
+                androidTest.java.srcDirs += 'src/androidTest/kotlin'
+            }
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

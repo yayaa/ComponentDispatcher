@@ -1,0 +1,13 @@
+<manifest package="com.yayandroid.componentdispatcher.sample.base"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <meta-data
+            android:name="@string/component_generator_list"
+            android:resource="@array/component_generators" />
+
+        <meta-data
+            android:name="@string/component_generator_core"
+            android:value="com.yayandroid.componentdispatcher.sample.base.SampleCoreComponentGenerator" />
+    </application>
+</manifest>

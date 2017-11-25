@@ -1,36 +1,5 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-
-android {
-    compileSdkVersion versions.compileSdkVersion
-
-    defaultConfig {
-        applicationId "com.yayandroid.componentdispatcher.sample"
-
-        minSdkVersion versions.minSdkVersion
-        targetSdkVersion versions.targetSdkVersion
-        versionCode 1
-        versionName '1.0'
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
-        androidTest.java.srcDirs += 'src/androidTest/kotlin'
-    }
-}
-
 dependencies {
-    implementation project(':library')
-
-    implementation libraries.kotlin
-    implementation libraries.appCompat
+    implementation project(':base')
+    implementation project(':feature1')
+    implementation project(':feature2')
 }

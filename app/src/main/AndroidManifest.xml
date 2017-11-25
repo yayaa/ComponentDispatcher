@@ -11,15 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data android:name="@string/component_generator_list"
-            android:resource="@array/component_generators" />
-
-        <meta-data android:name="@string/component_generator_core"
-            android:value="com.yayandroid.componentdispatcher.sample.SomeComponentGenerator" />
-
-        <meta-data android:name="@string/component_generator_feature1"
-            android:value="com.yayandroid.componentdispatcher.sample.SomeComponentGenerator2" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
