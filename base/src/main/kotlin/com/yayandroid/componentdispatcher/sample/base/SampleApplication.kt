@@ -1,4 +1,4 @@
-package com.yayandroid.componentdispatcher.sample
+package com.yayandroid.componentdispatcher.sample.base
 
 import android.app.Application
 import com.yayandroid.componentdispatcher.ComponentDispatcher
