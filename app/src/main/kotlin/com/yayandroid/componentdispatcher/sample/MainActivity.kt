@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
-import com.yayandroid.componentdispatcher.ComponentDispatcher
 import com.yayandroid.componentdispatcher.sample.base.SampleCoreComponent
+import com.yayandroid.componentdispatcher.sample.base.getComponent
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<TextView>(R.id.sampleTextView).apply {
-            text = "Component: \n ${ComponentDispatcher.get<SampleCoreComponent>()}"
+            text = "Component: \n ${getComponent<SampleCoreComponent>()}"
         }
 
         findViewById<Button>(R.id.feature1Button).apply {

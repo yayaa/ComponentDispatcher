@@ -3,7 +3,7 @@ package com.yayandroid.componentdispatcher.sample.feature2
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import com.yayandroid.componentdispatcher.ComponentDispatcher
+import com.yayandroid.componentdispatcher.sample.base.getComponent
 
 class Feature2Activity : AppCompatActivity() {
 
@@ -12,7 +12,7 @@ class Feature2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_feature_2)
 
         findViewById<TextView>(R.id.sampleTextView).apply {
-            text = "Component: \n ${ComponentDispatcher.get<Feature2Component>()}"
+            text = "Component: \n ${getComponent<Feature2Component>()}"
         }
     }
 }
