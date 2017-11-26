@@ -2,7 +2,7 @@ package com.yayandroid.componentdispatcher
 
 import java.lang.reflect.ParameterizedType
 
-abstract class ComponentGenerator<out T: ApplicationComponent> {
+sealed class ComponentGenerator<out T: ApplicationComponent> {
 
     abstract val component: T
 
@@ -17,6 +17,7 @@ abstract class CoreComponentGenerator<out T: CoreApplicationComponent> : Compone
 }
 
 abstract class FeatureComponentGenerator<out T: FeatureApplicationComponent> : ComponentGenerator<T>() {
-    override val component: T by lazy { generate(ComponentDispatcher.getCoreApplicationComponent()) }
+    internal var coreApplicationComponent: CoreApplicationComponent? = null
+    override val component: T by lazy { generate(coreApplicationComponent) }
     abstract fun generate(coreApplicationComponent: CoreApplicationComponent?): T
 }

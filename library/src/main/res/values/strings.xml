@@ -1,3 +1,4 @@
 <resources>
-    <string name="component_generator_list">componentdispatcher.generator.list</string>
+    <string name="component_generator_core">componentdispatcher.generator.core</string>
+    <string name="component_generator_features">componentdispatcher.generator.features</string>
 </resources>

@@ -3,7 +3,7 @@
 
     <application android:name=".SampleApplication" >
         <meta-data
-            android:name="@string/component_generator_list"
+            android:name="@string/component_generator_features"
             android:resource="@array/component_generators" />
 
         <meta-data
