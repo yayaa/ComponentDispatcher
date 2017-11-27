@@ -1,23 +1,24 @@
 package com.yayandroid.componentdispatcher.sample.feature1
 
-import android.util.Log
 import com.yayandroid.componentdispatcher.CoreApplicationComponent
 import com.yayandroid.componentdispatcher.FeatureApplicationComponent
 import com.yayandroid.componentdispatcher.FeatureComponentGenerator
+import com.yayandroid.componentdispatcher.sample.base.di.SampleCoreComponent
+import dagger.Component
 
 class Feature1ComponentGenerator : FeatureComponentGenerator<Feature1Component>() {
 
     override fun generate(coreApplicationComponent: CoreApplicationComponent?): Feature1Component =
-            Feature1Component(coreApplicationComponent)
+            DaggerFeature1Component.builder()
+                    .sampleCoreComponent(coreApplicationComponent as SampleCoreComponent)
+                    .build()
 
 }
 
-class Feature1Component(private val coreApplicationComponent: CoreApplicationComponent?) : FeatureApplicationComponent {
+@Feature1Scope
+@Component(dependencies = arrayOf(SampleCoreComponent::class))
+interface Feature1Component : FeatureApplicationComponent {
 
-    init {
-        Log.i("Feature1Component", "Feature1Component is now generated.")
-    }
+    fun inject(activity: Feature1Activity)
 
-    override fun toString(): String = super.toString() +
-            " with $coreApplicationComponent as coreApplicationComponent"
 }

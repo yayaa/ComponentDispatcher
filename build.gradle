@@ -39,6 +39,7 @@ subprojects { project ->
         } else {
             apply plugin: 'com.android.library'
         }
+        apply plugin: 'kotlin-kapt'
         apply plugin: 'kotlin-android'
         apply plugin: 'kotlin-android-extensions'
 
@@ -57,6 +58,10 @@ subprojects { project ->
                 test.java.srcDirs += 'src/test/kotlin'
                 androidTest.java.srcDirs += 'src/androidTest/kotlin'
             }
+        }
+
+        dependencies {
+            kapt libraries.daggerCompiler
         }
     }
 }
