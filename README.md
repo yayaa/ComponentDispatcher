@@ -51,15 +51,22 @@ class Feature1ComponentGenerator : FeatureComponentGenerator<YourFeatureComponen
 
 class SampleApplication : Application() {
 
+  private lateinit var componentDispatcher: ComponentDispatcher
+
   override fun onCreate() {
-        super.onCreate()
-        ComponentDispatcher.initialize(this)
-    }
+      super.onCreate()
+      componentDispatcher = ComponentDispatcher(this)
+  }
+
+  fun getComponentDispatcher() = componentDispatcher
 
 }
 ```
 
 **5.** Get your component right away!
 ```kotlin
-val feature1Component = ComponentDispatcher.get<Feature1Component>()
+val componentDispatcher = (application as SampleApplication).getComponentDispatcher()
+val feature1Component = componentDispatcher.get<Feature1Component>()
 ```
+
+You can create an extension property for componentDispatcher [like it is done in sample application.](https://github.com/yayaa/ComponentDispatcher/blob/master/base/src/main/kotlin/com/yayandroid/componentdispatcher/sample/base/SampleApplication.kt#L20)

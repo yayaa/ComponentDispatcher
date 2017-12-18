@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
-import com.yayandroid.componentdispatcher.ComponentDispatcher
 import com.yayandroid.componentdispatcher.sample.base.SampleCoreLogger
+import com.yayandroid.componentdispatcher.sample.base.componentDispatcher
 import com.yayandroid.componentdispatcher.sample.base.di.SampleCoreComponent
 import javax.inject.Inject
 
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sampleCoreComponent = ComponentDispatcher.get<SampleCoreComponent>()
+        val sampleCoreComponent = componentDispatcher.get<SampleCoreComponent>()
         MainComponent.create(sampleCoreComponent).inject(this)
         sampleCoreLogger.logSelf()
 

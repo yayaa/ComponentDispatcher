@@ -3,8 +3,8 @@ package com.yayandroid.componentdispatcher.sample.feature1
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import com.yayandroid.componentdispatcher.ComponentDispatcher
 import com.yayandroid.componentdispatcher.sample.base.SampleCoreLogger
+import com.yayandroid.componentdispatcher.sample.base.componentDispatcher
 import javax.inject.Inject
 
 class Feature1Activity : AppCompatActivity() {
@@ -15,7 +15,7 @@ class Feature1Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feature_1)
 
-        val feature1Component = ComponentDispatcher.get<Feature1Component>()
+        val feature1Component = componentDispatcher.get<Feature1Component>()
         feature1Component.inject(this)
         sampleCoreLogger.logSelf()
 

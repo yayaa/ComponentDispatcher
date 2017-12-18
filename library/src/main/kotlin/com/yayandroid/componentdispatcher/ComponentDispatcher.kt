@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import java.lang.reflect.Type
 
-object ComponentDispatcher {
+class ComponentDispatcher(application: Application) {
 
     private val TAG = ComponentDispatcher::class.java.name
     private val CORE_RES_ID = R.string.component_generator_core
@@ -16,7 +16,7 @@ object ComponentDispatcher {
     @Suppress("MemberVisibilityCanPrivate")
     @PublishedApi internal val generatorMap = HashMap<Type, ComponentGenerator<*>>()
 
-    fun initialize(application: Application) {
+    init {
         val metaData = readMetaData(application)
 
         val generatorListResId = metaData.getInt(application.getString(FEATURES_RES_ID))
@@ -75,6 +75,7 @@ object ComponentDispatcher {
             val componentGenerator = application.classLoader.loadClass(generatorPath)
                     .getConstructor().newInstance() as ComponentGenerator<*>
 
+            componentGenerator.application = application
             if (componentGenerator is FeatureComponentGenerator) {
                 componentGenerator.coreApplicationComponent = coreComponentGenerator?.component
             }
