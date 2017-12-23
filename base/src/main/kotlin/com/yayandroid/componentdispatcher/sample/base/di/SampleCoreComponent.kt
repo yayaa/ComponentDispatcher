@@ -1,7 +1,7 @@
 package com.yayandroid.componentdispatcher.sample.base.di
 
 import android.app.Application
-import com.yayandroid.componentdispatcher.CoreApplicationComponent
+import com.yayandroid.componentdispatcher.contract.CoreApplicationComponent
 import com.yayandroid.componentdispatcher.sample.base.SampleCoreLogger
 import dagger.BindsInstance
 import dagger.Component

@@ -9,7 +9,7 @@ android {
         minSdkVersion versions.minSdkVersion
         targetSdkVersion versions.targetSdkVersion
         versionCode = Integer.parseInt(VERSION_CODE)
-        versionName = VERSION_NAME
+        versionName = VERSION
     }
 
     buildTypes {
@@ -28,6 +28,8 @@ android {
 }
 
 dependencies {
+    api project(":annotation")
+    api project(":contract")
     implementation libraries.kotlin
     implementation libraries.appCompat
 }

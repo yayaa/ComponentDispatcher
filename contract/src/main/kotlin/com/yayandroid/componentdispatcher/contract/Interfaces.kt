@@ -1,4 +1,4 @@
-package com.yayandroid.componentdispatcher
+package com.yayandroid.componentdispatcher.contract
 
 interface ApplicationComponent
 

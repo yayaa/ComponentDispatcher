@@ -1,5 +1,7 @@
 dependencies {
     api project(':library')
+    kapt project(':processor')
+    compileOnly project(':processor')
 
     api libraries.kotlin
     api libraries.appCompat

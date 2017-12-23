@@ -3,6 +3,10 @@ package com.yayandroid.componentdispatcher.sample.base
 import android.app.Activity
 import android.app.Application
 import com.yayandroid.componentdispatcher.ComponentDispatcher
+import com.yayandroid.componentdispatcher.contract.CoreGenerator
+import com.yayandroid.componentdispatcher.contract.Generator
+import com.yayandroid.componentdispatcher.contract.GeneratorSource
+import java.lang.reflect.Type
 
 class SampleApplication : Application() {
 
@@ -10,7 +14,15 @@ class SampleApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        componentDispatcher = ComponentDispatcher(this)
+
+        // TODO: Replace this source with ComponentGeneratorSource()
+        val source = object : GeneratorSource {
+            override fun getGeneratorMap(): HashMap<Type, Generator<*>> = HashMap()
+
+            override fun getCoreGenerator(): CoreGenerator? = null
+        }
+
+        componentDispatcher = ComponentDispatcher(this, source)
     }
 
     fun getComponentDispatcher() = componentDispatcher

@@ -1,12 +1,14 @@
 package com.yayandroid.componentdispatcher.sample.feature1
 
 import android.app.Application
-import com.yayandroid.componentdispatcher.CoreApplicationComponent
-import com.yayandroid.componentdispatcher.FeatureApplicationComponent
 import com.yayandroid.componentdispatcher.FeatureComponentGenerator
+import com.yayandroid.componentdispatcher.annotation.ComponentGenerator
+import com.yayandroid.componentdispatcher.contract.CoreApplicationComponent
+import com.yayandroid.componentdispatcher.contract.FeatureApplicationComponent
 import com.yayandroid.componentdispatcher.sample.base.di.SampleCoreComponent
 import dagger.Component
 
+@ComponentGenerator
 class Feature1ComponentGenerator : FeatureComponentGenerator<Feature1Component>() {
 
     override fun generate(application: Application,

@@ -1,7 +1,7 @@
 package com.yayandroid.componentdispatcher.sample.base
 
 import android.util.Log
-import com.yayandroid.componentdispatcher.ApplicationComponent
+import com.yayandroid.componentdispatcher.contract.ApplicationComponent
 
 class SampleCoreLogger {
 
