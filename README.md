@@ -3,7 +3,8 @@
 It is important to have your Dagger implementation to be optimised in order to create a clear separation between features.
 And every application, library or feature mostly wants to keep instances for as long as Application lifecycle. To achieve that, we create **one big** component to keep every instance in it and store that in Application class. But this already blocks having separated features!
 
-// TODO: More explanation!
+More information about the details on the problem and this implementation, please read the post:
+https://medium.com/@yahyabayramoglu/building-features-by-independent-dagger-components-f634e55b9f07
 
 ## Usage
 
@@ -70,3 +71,6 @@ val feature1Component = componentDispatcher.get<Feature1Component>()
 ```
 
 You can create an extension property for componentDispatcher [like it is done in sample application.](https://github.com/yayaa/ComponentDispatcher/blob/master/base/src/main/kotlin/com/yayandroid/componentdispatcher/sample/base/SampleApplication.kt#L20)
+
+## Disclaimer
+`meta-data` approach is chosen because Android provides manifest merge and that would allow us to collect all the required ComponentGenerators on runtime. This approach can be still improved, but it can be considered as a conceptual work to split modules and dependencies.
